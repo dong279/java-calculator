@@ -24,6 +24,9 @@ public class Application {
             }catch (NumberFormatException e){
                 throw new IllegalArgumentException("숫자가 아닌 값: " + token);
             }
+            if (num < 0) {
+                throw new IllegalArgumentException("음수는 사용 불가: " + num);
+            }
             sum += num;
         }
         return sum;
