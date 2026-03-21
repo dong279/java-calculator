@@ -12,5 +12,20 @@ public class Application {
         if (input == null || input.isEmpty()) {
             return 0;
         }
+
+        String delimiter = "[,:]";
+        String numberPart = input;
+
+        int sum = 0;
+        for (String token : numberPart.split(delimiter)) {
+            int num;
+            try{
+                num = Integer.parseInt(token.trim());
+            }catch (NumberFormatException e){
+                throw new IllegalArgumentException("숫자가 아닌 값: " + token);
+            }
+            sum += num;
+        }
+        return sum;
     }
 }
