@@ -12,6 +12,10 @@ public class CustomDelimiterParser {
   private static final String PREFIX = "//"; // 상수명 의미 명확화
   private static final String SUFFIX = "\\n"; // 상수명 의미 명확화
 
+  public boolean supports(String input){
+    return input.startsWith(PREFIX);
+  }
+
   public Numbers parse(String input){
     int suffixIndex = input.indexOf(SUFFIX); // newlineIndex → suffixIndex
     if (suffixIndex < 0){ // Validator 대신 내부 검증
